@@ -12,5 +12,44 @@
     <div class="content">
       <table class="list"></table>
     </div>
+    <a class="btn" onclick="popupToggle();">
+      <span>add a book</span>
+      <span>add a book</span>
+    </a>
+    <div id="popup">
+      <div class="popupContent">
+        <img src="./book.png" alt="Book" />
+
+        <h2>Add a new book</h2>
+
+        <div class="inputBox">
+          <input type="input" placeholder="Title" />
+        </div>
+
+        <div class="inputBox">
+          <input type="input" placeholder="Author" />
+        </div>
+
+        <div class="inputBox">
+          <input type="number" placeholder="Number of pages" />
+        </div>
+
+        <div class="inputBox">
+          <p>
+            Did you finish this book?
+
+            <select name="readOrNot" id="readOrNot" form="readform">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </p>
+        </div>
+
+        <div class="inputBox submit">
+          <input type="submit" value="Add this book" class="btn" />
+        </div>
+      </div>
+      <a class="close" onclick="popupToggle();"> <img src="./cancel.png" /></a>
+    </div>
   </body>
 </html>
