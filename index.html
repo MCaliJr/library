@@ -9,6 +9,7 @@
     <script defer src="./app.js"></script>
   </head>
   <body>
+    <div class="header">Your library</div>
     <div class="content">
       <table class="list"></table>
     </div>
@@ -23,15 +24,19 @@
         <h2>Add a new book</h2>
 
         <div class="inputBox">
-          <input type="input" placeholder="Title" />
+          <input type="input" placeholder="Title" class="bookTitle" />
         </div>
 
         <div class="inputBox">
-          <input type="input" placeholder="Author" />
+          <input type="input" placeholder="Author" class="bookAuthor" />
         </div>
 
         <div class="inputBox">
-          <input type="number" placeholder="Number of pages" />
+          <input
+            type="number"
+            placeholder="Number of pages"
+            class="bookPagesNumber"
+          />
         </div>
 
         <div class="inputBox">
@@ -46,7 +51,7 @@
         </div>
 
         <div class="inputBox submit">
-          <input type="submit" value="Add this book" class="btn" />
+          <input type="submit" value="Add this book" class="btn submitBtn" />
         </div>
       </div>
       <a class="close" onclick="popupToggle();"> <img src="./cancel.png" /></a>

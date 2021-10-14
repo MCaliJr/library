@@ -9,11 +9,23 @@ body {
   background: rgb(8, 132, 235);
 }
 
+.header {
+  background: black;
+  color: white;
+  padding: 20px;
+  font-size: 28px;
+}
+
 table,
 th,
 td {
   border: 1px solid black;
   padding: 5px;
+  text-align: center;
+}
+
+.list {
+  background-color: white;
 }
 
 .btn {
