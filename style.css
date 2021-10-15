@@ -14,7 +14,7 @@ body {
   background: #1b0129;
   color: #8d2ac4;
   padding: 20px;
-  font-size: 28px;
+  font-size: 3rem;
   font-weight: 900;
   font-family: "Roboto Slab", serif;
   text-align: center;
@@ -26,6 +26,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  font-size: 1.5rem;
 }
 
 table,
@@ -33,6 +34,7 @@ th,
 td {
   padding: 12px 15px;
   text-align: center;
+  vertical-align: middle;
 }
 table {
   padding: 10px;
@@ -41,7 +43,7 @@ table {
 .list {
   background: #9948c5;
   border-collapse: collapse;
-  font-size: 0.9em;
+  font-size: 1em;
   font-weight: bold;
   min-width: 400px;
   border-radius: 10px 10px 0 0;
@@ -253,7 +255,7 @@ a.btn span:nth-child(1):hover ~ span:nth-child(2) {
 }
 
 .deleteButton {
-  padding: 6px;
+  padding: 12px;
   margin: 7px;
   transition: 0.8s ease;
   border: none;
@@ -276,7 +278,7 @@ a.btn span:nth-child(1):hover ~ span:nth-child(2) {
 }
 
 .deleteButton:hover {
-  padding: 13px;
+  padding: 19px;
   margin: 0px;
   rotate: 630deg;
   background-color: red;
@@ -284,7 +286,7 @@ a.btn span:nth-child(1):hover ~ span:nth-child(2) {
   cursor: pointer;
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 800px) {
   .tableAndButton {
     flex-direction: column-reverse;
     gap: 15px;

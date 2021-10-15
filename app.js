@@ -9,14 +9,6 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-// todo delete this later
-const newBook1 = new Book("Hobbit", "Tolkien", 758, "❌");
-myLibrary.push(newBook1);
-
-const newBook2 = new Book("Fx God", "MartinK", 420, "✔️");
-myLibrary.push(newBook2);
-// todo delete to here
-
 function addBookToLibrary() {
   // Take book info from user's input
   let title = document.querySelector(".bookTitle");
