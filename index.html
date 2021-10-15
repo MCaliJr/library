@@ -7,16 +7,26 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="./app.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="header">Your library</div>
-    <div class="content">
-      <table class="list"></table>
+    <div class="header">
+      <p>Your library</p>
     </div>
-    <a class="btn" onclick="popupToggle();">
-      <span>add a book</span>
-      <span>add a book</span>
-    </a>
+    <div class="tableAndButton">
+      <div class="content">
+        <table class="list"></table>
+      </div>
+      <a class="btn" onclick="popupToggle();">
+        <span>add a book</span>
+        <span>add a book</span>
+      </a>
+    </div>
     <div id="popup">
       <div class="popupContent">
         <img src="./book.png" alt="Book" />
@@ -24,11 +34,21 @@
         <h2>Add a new book</h2>
 
         <div class="inputBox">
-          <input type="input" placeholder="Title" class="bookTitle" />
+          <input
+            type="input"
+            placeholder="Title"
+            class="bookTitle"
+            autocomplete="off"
+          />
         </div>
 
         <div class="inputBox">
-          <input type="input" placeholder="Author" class="bookAuthor" />
+          <input
+            type="input"
+            placeholder="Author"
+            class="bookAuthor"
+            autocomplete="off"
+          />
         </div>
 
         <div class="inputBox">
@@ -36,6 +56,7 @@
             type="number"
             placeholder="Number of pages"
             class="bookPagesNumber"
+            autocomplete="off"
           />
         </div>
 
@@ -44,8 +65,8 @@
             Did you finish this book?
 
             <select name="readOrNot" id="readOrNot" form="readform">
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
+              <option value="yes">Yes 😃</option>
+              <option value="no">No 😢</option>
             </select>
           </p>
         </div>

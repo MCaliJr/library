@@ -76,7 +76,7 @@ function displayTable() {
 }
 
 function createTableHeader() {
-  let tr = document.createElement("tr");
+  let tr = document.createElement("thead");
   let th1 = document.createElement("th");
   let th2 = document.createElement("th");
   let th3 = document.createElement("th");
