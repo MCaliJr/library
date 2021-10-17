@@ -9,6 +9,11 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+// Create changeSign method that will change completion sign in given book object to the opposite one
+Book.prototype.changeSign = function () {
+  return this.read == "✔️" ? (this.read = "❌") : (this.read = "✔️");
+};
+
 function addBookToLibrary() {
   // Take book info from user's input
   let title = document.querySelector(".bookTitle");
@@ -20,7 +25,7 @@ function addBookToLibrary() {
   // Create new book object using the Book constructor with user input values
   const newBook = new Book(title.value, author.value, +pages.value, read);
 
-  // Add new book object to the book's array
+  // Add new book object to the books array
   myLibrary.push(newBook);
 
   // Reset input forms making them empty after adding book to library
@@ -67,13 +72,14 @@ function displayTable() {
   });
 }
 
+// Create header for table
 function createTableHeader() {
   let tr = document.createElement("thead");
-  let th1 = document.createElement("th");
-  let th2 = document.createElement("th");
-  let th3 = document.createElement("th");
-  let th4 = document.createElement("th");
-  let th5 = document.createElement("th");
+  let th1 = document.createElement("th"); // Title
+  let th2 = document.createElement("th"); // Author
+  let th3 = document.createElement("th"); // Pages
+  let th4 = document.createElement("th"); // Finished?
+  let th5 = document.createElement("th"); // Delete
   let headerContent1 = document.createTextNode("Title");
   let headerContent2 = document.createTextNode("Author");
   let headerContent3 = document.createTextNode("Pages");
@@ -96,50 +102,36 @@ function createTableHeader() {
 
 displayTable();
 
-Book.prototype.changeSign = function () {
-  return this.read == "✔️" ? (this.read = "❌") : (this.read = "✔️");
-};
-
 function letUserChangeReadStatus() {
   const tickOrX = Array.from(document.querySelectorAll(".tickOrX"));
   tickOrX.forEach((tickOrX) => {
     tickOrX.addEventListener("click", () => {
       console.log(tickOrX.dataset.index);
       myLibrary[tickOrX.dataset.index].changeSign();
-      displayTable();
-      defineLibraryArray();
-      letUserChangeReadStatus();
-      resetDeleteAbility();
+      tableReset();
     });
   });
 }
-letUserChangeReadStatus();
 
 function defineLibraryArray() {
   deleteButton = Array.from(document.querySelectorAll(".deleteButton"));
 }
-defineLibraryArray();
 
+// Reset ability to delete another book after each one is deleted
 function resetDeleteAbility() {
   deleteButton.forEach((button) => {
     button.addEventListener("click", () => {
       myLibrary.splice(button.dataset.index, 1);
-      displayTable();
-      defineLibraryArray();
-      resetDeleteAbility();
-      letUserChangeReadStatus();
+      tableReset();
     });
   });
 }
-resetDeleteAbility();
 
+// Make "Add this book" button listen for clicks and run script to add book into array and then display the updated table
 const addBookClick = document.querySelector(".submitBtn");
 addBookClick.addEventListener("click", function () {
   addBookToLibrary();
-  displayTable();
-  defineLibraryArray();
-  resetDeleteAbility();
-  letUserChangeReadStatus();
+  tableReset();
   popup.classList.toggle("active");
 });
 
@@ -147,4 +139,12 @@ addBookClick.addEventListener("click", function () {
 function popupToggle() {
   const popup = document.getElementById("popup");
   popup.classList.toggle("active");
+}
+
+// Reset whole table and redraw it with new array values
+function tableReset() {
+  displayTable();
+  defineLibraryArray();
+  resetDeleteAbility();
+  letUserChangeReadStatus();
 }

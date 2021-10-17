@@ -36,6 +36,7 @@ td {
   padding: 12px 15px;
   text-align: center;
   vertical-align: middle;
+  word-wrap: break-word;
 }
 table {
   padding: 10px;
@@ -141,7 +142,7 @@ a.btn span:nth-child(1):hover ~ span:nth-child(2) {
   transform: translate(-50%, 50%);
   z-index: 100;
   background: white;
-  min-width: 25vw;
+  min-width: 10vw;
   padding: 30px 30px 30px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
   transition: 1s;
@@ -191,7 +192,7 @@ a.btn span:nth-child(1):hover ~ span:nth-child(2) {
 #popup .popupContent .inputBox input {
   min-width: 80%;
   max-width: 100%;
-  border: 1px solid #1b0129;
+  border: 2px solid #1b0129;
   padding: 15px;
   font-size: 18px;
   border-radius: 10px;
@@ -200,6 +201,11 @@ a.btn span:nth-child(1):hover ~ span:nth-child(2) {
   color: #1a0028;
   text-shadow: 2px 2px 0px rgba(27, 1, 4, 0.15);
   box-shadow: 2px 2px 0px rgba(27, 1, 4, 0.15);
+}
+
+#popup .popupContent .inputBox input:focus {
+  outline: none !important;
+  border: 3px solid #1b0129;
 }
 
 #popup .popupContent .inputBox p {
@@ -219,7 +225,7 @@ a.btn span:nth-child(1):hover ~ span:nth-child(2) {
 #popup .popupContent .inputBox select {
   padding: 5px 2px;
   font-size: 16px;
-  width: 35%;
+  width: 45%;
   text-align: center;
   margin-top: 10px;
   background: rgb(173, 173, 173);
@@ -228,11 +234,20 @@ a.btn span:nth-child(1):hover ~ span:nth-child(2) {
   border: none;
   border-radius: 10px;
   font-weight: bold;
-  border: 1px solid #1b0129;
+  border: 2px solid #1b0129;
   background: #9948c5;
   color: #1a0028;
   text-shadow: 2px 2px 0px rgba(27, 1, 4, 0.15);
   box-shadow: 2px 2px 0px rgba(27, 1, 4, 0.15);
+}
+
+#popup .popupContent .inputBox select:focus {
+  outline: none !important;
+  border: 2px solid black;
+}
+
+#popup .popupContent .inputBox select:hover {
+  border: 3px solid #1b0129;
 }
 
 #popup .popupContent .submit {
@@ -246,8 +261,8 @@ a.btn span:nth-child(1):hover ~ span:nth-child(2) {
 
 .close {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 20px;
+  right: 20px;
   cursor: pointer;
 }
 
@@ -287,7 +302,7 @@ a.btn span:nth-child(1):hover ~ span:nth-child(2) {
   cursor: pointer;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1200px) {
   .tableAndButton {
     flex-direction: column-reverse;
     gap: 0px;
@@ -296,4 +311,20 @@ a.btn span:nth-child(1):hover ~ span:nth-child(2) {
   .btn {
     margin-bottom: 15px;
   }
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #1b0129;
+  opacity: 0.6; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #1b0129;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #1b0129;
 }
