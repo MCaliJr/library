@@ -1,5 +1,47 @@
-// Array that will store all books
-let myLibrary = [];
+// Make sure that indicated storage is avaliable on user's browser
+function storageAvailable(type) {
+  var storage;
+  try {
+    storage = window[type];
+    var x = "__storage_test__";
+    storage.setItem(x, x);
+    storage.removeItem(x);
+    return true;
+  } catch (e) {
+    return (
+      e instanceof DOMException &&
+      // everything except Firefox
+      (e.code === 22 ||
+        // Firefox
+        e.code === 1014 ||
+        // test name field too, because code might not be present
+        // everything except Firefox
+        e.name === "QuotaExceededError" ||
+        // Firefox
+        e.name === "NS_ERROR_DOM_QUOTA_REACHED") &&
+      // acknowledge QuotaExceededError only if there's something already stored
+      storage &&
+      storage.length !== 0
+    );
+  }
+}
+
+// Make sure that local storage is avaliable on user's browser
+if (storageAvailable("localStorage")) {
+  // Check if local storage contains array with book info, if not then declare it
+  if (!localStorage.getItem("books")) {
+    myLibrary = [];
+  } else {
+    myLibrary = JSON.parse(localStorage.getItem("books"));
+  }
+} else {
+  // No local storage? Declare empty array
+  myLibrary = [];
+}
+
+function populateLocalStorage() {
+  localStorage.setItem("books", JSON.stringify(myLibrary));
+}
 
 // Book constructor
 function Book(title, author, pages, read) {
@@ -19,8 +61,13 @@ function addBookToLibrary() {
   let title = document.querySelector(".bookTitle");
   let author = document.querySelector(".bookAuthor");
   let pages = document.querySelector(".bookPagesNumber");
-
   let read = document.querySelector("#readOrNot").value == "yes" ? "✔️" : "❌";
+
+  // Check whether user provided a valid number of pages
+  if (+pages.value === 0) {
+    alert("Please enter a valid number of pages");
+    return;
+  }
 
   // Create new book object using the Book constructor with user input values
   const newBook = new Book(title.value, author.value, +pages.value, read);
@@ -147,4 +194,7 @@ function tableReset() {
   defineLibraryArray();
   resetDeleteAbility();
   letUserChangeReadStatus();
+  populateLocalStorage();
 }
+
+tableReset();
