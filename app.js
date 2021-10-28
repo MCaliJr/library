@@ -43,18 +43,20 @@ function populateLocalStorage() {
   localStorage.setItem("books", JSON.stringify(myLibrary));
 }
 
-// Book constructor
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
+// Book class
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 
-// Create changeSign method that will change completion sign in given book object to the opposite one
-Book.prototype.changeSign = function () {
-  return this.read == "✔️" ? (this.read = "❌") : (this.read = "✔️");
-};
+  // Create changeSign method that will change completion sign in given book object to the opposite one
+  changeSign() {
+    return this.read == "✔️" ? (this.read = "❌") : (this.read = "✔️");
+  }
+}
 
 function addBookToLibrary() {
   // Take book info from user's input
@@ -146,8 +148,6 @@ function createTableHeader() {
   th4.appendChild(headerContent4);
   th5.appendChild(headerContent5);
 }
-
-displayTable();
 
 function letUserChangeReadStatus() {
   const tickOrX = Array.from(document.querySelectorAll(".tickOrX"));
