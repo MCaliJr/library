@@ -4,7 +4,7 @@ This is TOP project: simple library webapp which lets you store info about your 
 
 👉 [**Check Live Demo**](https://mcalijr.github.io/library/)
 
-![Alt text](/imgs/READMEscreen.jpg "Design - Starting game screen")
+![Alt text](READMEscreen.jpg "Design - Starting game screen")
 
 ## Technologies used
 
